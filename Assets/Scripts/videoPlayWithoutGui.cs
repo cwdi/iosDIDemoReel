@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class videoPlayWithoutGui : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class videoPlayWithoutGui : MonoBehaviour
 	public string videoForIndex1 = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8";
 	public string nextScene;
 	public float duration;
+	public float fadeSpeed = 0.5f;
+	public Image FadeImg;
+
+
 
 	IEnumerator Start ()
 	{
@@ -19,13 +24,15 @@ public class videoPlayWithoutGui : MonoBehaviour
 		if (video.videoIndex == 0) {
 			video.PlayTexture(videoForIndex0);
 			yield return new WaitForSeconds( duration );
-			//video.Stop();
-			Application.LoadLevel(nextScene);
+			FadeImg.color = Color.Lerp(FadeImg.color, Color.black, fadeSpeed * Time.deltaTime);
 			video.Stop();
+			Application.LoadLevel(nextScene);
+		
 		}
 		else
 			video.PlayTexture (videoForIndex1);
 	}
+
 	}
 	
 	

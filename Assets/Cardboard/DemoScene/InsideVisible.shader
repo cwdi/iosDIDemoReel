@@ -2,7 +2,7 @@
 
 Shader "InsideVisible" {
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", 2D) = "black" {}
 }
 
 SubShader {

@@ -19,8 +19,9 @@ public class videoPlayWithoutGui : MonoBehaviour
 		if (video.videoIndex == 0) {
 			video.PlayTexture(videoForIndex0);
 			yield return new WaitForSeconds( duration );
-			video.Stop();
+			//video.Stop();
 			Application.LoadLevel(nextScene);
+			video.Stop();
 		}
 		else
 			video.PlayTexture (videoForIndex1);
